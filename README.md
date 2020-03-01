@@ -1,6 +1,8 @@
 # n-loops
 Creating dynamic nested loops on Java
 
+##
+
 ### The problem
 
 Suppose you need to create such nested loops dynamically:
@@ -17,7 +19,7 @@ for (int i = 0; i < 2; i++) {
 
 ### Solution
 
-So, with the `n-loops` library you can make it with the simple builder:
+With the `n-loops` library you can make it with the simple builder:
 
 ```java
 new NLoops()
