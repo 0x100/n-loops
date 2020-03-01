@@ -3,7 +3,7 @@ Creating dynamic nested loops on Java
 
 #
 
-Suppose you need to create such nested loops:
+Suppose you need to create such nested loops dynamically:
 
 ```java
 for (int i = 0; i < 2; i++) {
