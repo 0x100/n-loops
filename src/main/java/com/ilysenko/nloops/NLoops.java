@@ -30,20 +30,24 @@ public class NLoops {
         return this;
     }
 
-    public void action(Callback callback) {
-        loop(0, new ArrayList<>(Collections.nCopies(loops.size(), 0)), callback);
+    public void action(Action action) {
+        loop(0, new ArrayList<>(Collections.nCopies(loops.size(), 0)), action);
     }
 
-    private void loop(int level, List<Integer> indices, Callback callback) {
+    private void loop(int level, List<Integer> indices, Action action) {
         if (level == indices.size()) {
-            callback.action(indices);
+            action.perform(indices);
             return;
         }
         Loop loop = loops.get(level);
-        for (int i = loop.getFrom(); loop.getDec() > 0 ? i > loop.getTo() : i < loop.getTo(); i = getIndexChange(i, loop)) {
+        for (int i = loop.getFrom(); getCondition(i, loop); i = getIndexChange(i, loop)) {
             indices.set(level, i);
-            loop(level + 1, indices, callback);
+            loop(level + 1, indices, action);
         }
+    }
+
+    private boolean getCondition(int i, Loop loop) {
+        return loop.getDec() > 0 ? i > loop.getTo() : i < loop.getTo();
     }
 
     private Loop getLast(List<Loop> loops) {
