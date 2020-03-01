@@ -1,44 +1,44 @@
 package com.ilysenko.nloops;
 
-public class Loop {
+class Loop {
     private int from;
     private int to;
     private int inc = 1;
     private int dec;
 
-    public Loop from(int from) {
+    Loop from(int from) {
         this.from = from;
         return this;
     }
 
-    public Loop to(int to) {
+    Loop to(int to) {
         this.to = to;
         return this;
     }
 
-    public Loop inc(int inc) {
+    Loop inc(int inc) {
         this.inc = inc;
         return this;
     }
 
-    public Loop dec(int dec) {
+    Loop dec(int dec) {
         this.dec = dec;
         return this;
     }
 
-    public int getFrom() {
+    int getFrom() {
         return from;
     }
 
-    public int getTo() {
+    int getTo() {
         return to;
     }
 
-    public int getInc() {
+    int getInc() {
         return inc;
     }
 
-    public int getDec() {
+    int getDec() {
         return dec;
     }
 }

@@ -8,7 +8,6 @@ import static java.util.Optional.ofNullable;
 
 public class NLoops {
     private List<Loop> loops = new ArrayList<Loop>();
-    private Callback callback;
 
     public NLoops from(int from) {
         Loop loop = new Loop().from(from);
@@ -32,19 +31,18 @@ public class NLoops {
     }
 
     public void action(Callback callback) {
-        this.callback = callback;
-        loop(0, new ArrayList<>(Collections.nCopies(loops.size(), 0)));
+        loop(0, new ArrayList<>(Collections.nCopies(loops.size(), 0)), callback);
     }
 
-    private void loop(int level, List<Integer> indices) {
+    private void loop(int level, List<Integer> indices, Callback callback) {
         if (level == indices.size()) {
             callback.action(indices);
             return;
         }
         Loop loop = loops.get(level);
-        for (int i = loop.getFrom(); i < loop.getTo(); i = calculateChange(loop, i)) {
+        for (int i = loop.getFrom(); loop.getDec() > 0 ? i > loop.getTo() : i < loop.getTo(); i = getIndexChange(i, loop)) {
             indices.set(level, i);
-            loop(level + 1, indices);
+            loop(level + 1, indices, callback);
         }
     }
 
@@ -55,7 +53,7 @@ public class NLoops {
         return loops.get(loops.size() - 1);
     }
 
-    private int calculateChange(Loop loop, int i) {
-        return loop.getInc() > 0 ? i + loop.getInc() : i - loop.getDec();
+    private int getIndexChange(int i, Loop loop) {
+        return loop.getDec() > 0 ? i - loop.getDec() : i + loop.getInc();
     }
 }
