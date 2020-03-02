@@ -43,7 +43,7 @@ Result output:
 
 ### More flexible cases
 
-Suppose we need to generate such loops:
+Suppose we need to generate loops like this:
 ```java
 for (int i = 0; i < 3; i += 2) {
     for (int j = 5; j > 2; j--) {
@@ -52,7 +52,7 @@ for (int i = 0; i < 3; i += 2) {
 }
 ```
 
-This is also simple with the library's DSL:
+This is also pretty straightforward to implement with the library's DSL:
 ```java
 new NLoops()
     .from(0).to(3).inc(2)
