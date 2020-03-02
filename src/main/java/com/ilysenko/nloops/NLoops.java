@@ -46,10 +46,6 @@ public class NLoops {
         }
     }
 
-    private boolean getCondition(int i, Loop loop) {
-        return loop.getFrom() < loop.getTo() ? i < loop.getTo() : i > loop.getTo();
-    }
-
     private Loop getLast(List<Loop> loops) {
         if (loops.isEmpty()) {
             return null;
@@ -57,7 +53,15 @@ public class NLoops {
         return loops.get(loops.size() - 1);
     }
 
+    private boolean getCondition(int i, Loop loop) {
+        return isUpward(loop) ? i < loop.getTo() : i > loop.getTo();
+    }
+
     private int getIndexChange(int i, Loop loop) {
-        return loop.getFrom() < loop.getTo() ? i + loop.getInc() : i - loop.getDec();
+        return isUpward(loop) ? i + loop.getInc() : i - loop.getDec();
+    }
+
+    private boolean isUpward(Loop loop) {
+        return loop.getFrom() < loop.getTo();
     }
 }
