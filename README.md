@@ -1,6 +1,10 @@
 # n-loops
 Creating dynamic nested loops on Java
 
+###
+
+![build](https://github.com/0x100/n-loops/workflows/build/badge.svg?branch=master)
+
 ##
 
 ### The problem
