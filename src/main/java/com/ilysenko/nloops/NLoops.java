@@ -8,23 +8,23 @@ import static java.util.Collections.nCopies;
 public class NLoops {
     private List<Loop> loops = new ArrayList<>();
 
-    public NLoops from(int from) {
-        loops.add(new Loop().from(from));
+    public NLoops from(int value) {
+        loops.add(new Loop().from(value));
         return this;
     }
 
-    public NLoops to(int to) {
-        getLast(loops).to(to);
+    public NLoops to(int value) {
+        getLast().to(value);
         return this;
     }
 
-    public NLoops inc(int inc) {
-        getLast(loops).inc(inc);
+    public NLoops inc(int value) {
+        getLast().inc(value);
         return this;
     }
 
-    public NLoops dec(int dec) {
-        getLast(loops).dec(dec);
+    public NLoops dec(int value) {
+        getLast().dec(value);
         return this;
     }
 
@@ -45,7 +45,7 @@ public class NLoops {
         }
     }
 
-    private Loop getLast(List<Loop> loops) {
+    private Loop getLast() {
         if (loops.isEmpty()) {
             throw new IllegalArgumentException();
         }
