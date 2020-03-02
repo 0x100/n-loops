@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ilysenko</groupId>
+    <artifactId>n-loop</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>n-loop</name>
+    <description>Library for generating N of nested loops of different sizes with a specified action</description>
+
+    <developers>
+        <developer>
+            <name>Ilya Lysenko</name>
+            <email>lysenko.ilya@gmail.com</email>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/0x100/n-loops/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+
+
+</project>
