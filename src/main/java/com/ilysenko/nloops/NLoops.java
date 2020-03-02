@@ -1,17 +1,16 @@
 package com.ilysenko.nloops;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
+import static java.util.Collections.nCopies;
 import static java.util.Optional.ofNullable;
 
 public class NLoops {
     private List<Loop> loops = new ArrayList<Loop>();
 
     public NLoops from(int from) {
-        Loop loop = new Loop().from(from);
-        loops.add(loop);
+        loops.add(new Loop().from(from));
         return this;
     }
 
@@ -31,7 +30,8 @@ public class NLoops {
     }
 
     public void action(Action action) {
-        loop(0, new ArrayList<>(Collections.nCopies(loops.size(), 0)), action);
+        List<Integer> indices = new ArrayList<>(nCopies(loops.size(), 0));
+        loop(0, indices, action);
     }
 
     private void loop(int level, List<Integer> indices, Action action) {
