@@ -117,7 +117,10 @@ new NLoops()
 ## How to contribute
 Fork the repository, make changes, write a test for your code, send me a pull request. 
 I will review your changes and apply them to the master branch shortly, provided they don't violate quality standards. 
-To avoid frustration, before sending a pull request please compile the project.
+To avoid frustration, before sending a pull request please run the Maven build:
+```
+$ mvnw clean package
+```
 
 ##
 
