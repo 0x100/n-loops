@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Collections.nCopies;
-import static java.util.Optional.ofNullable;
 
 public class NLoops {
     private List<Loop> loops = new ArrayList<>();
@@ -15,17 +14,17 @@ public class NLoops {
     }
 
     public NLoops to(int to) {
-        ofNullable(getLast(loops)).orElseThrow(IllegalArgumentException::new).to(to);
+        getLast(loops).to(to);
         return this;
     }
 
     public NLoops inc(int inc) {
-        ofNullable(getLast(loops)).orElseThrow(IllegalArgumentException::new).inc(inc);
+        getLast(loops).inc(inc);
         return this;
     }
 
     public NLoops dec(int dec) {
-        ofNullable(getLast(loops)).orElseThrow(IllegalArgumentException::new).dec(dec);
+        getLast(loops).dec(dec);
         return this;
     }
 
@@ -48,7 +47,7 @@ public class NLoops {
 
     private Loop getLast(List<Loop> loops) {
         if (loops.isEmpty()) {
-            return null;
+            throw new IllegalArgumentException();
         }
         return loops.get(loops.size() - 1);
     }
