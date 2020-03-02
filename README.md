@@ -99,7 +99,7 @@ Result output:
     <dependency>
         <groupId>com.github.0x100</groupId>
         <artifactId>n-loops</artifactId>
-        <version>1.0-release</version>
+        <version>master-SNAPSHOT</version>
     </dependency>
 ```
 
