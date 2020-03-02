@@ -93,7 +93,7 @@ Result output:
     </repositories>
     ```
 
-2. Add the `n-loop` dependency
+2. Add the `n-loops` dependency
 
 ```xml
     <dependency>

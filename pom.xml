@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ilysenko</groupId>
-    <artifactId>n-loop</artifactId>
+    <artifactId>n-loops</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>n-loop</name>
+    <name>n-loops</name>
     <description>Library for generating N of nested loops of different sizes with a specified action</description>
 
     <developers>
