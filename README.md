@@ -46,8 +46,12 @@ Result output:
 Suppose we need to generate loops like this:
 ```java
 for (int i = 0; i < 3; i += 2) {
-    for (int j = 5; j > 2; j--) {
-        System.out.println(Arrays.asList(i, j));
+    for (int j = 7; j > 2; j--) {
+        for (int k = 18; k > 5; k -= 3) {
+            for (int l = 1; l < 4; l++) {
+                System.out.println(Arrays.asList(i, j, k, l));
+            }
+        }
     }
 }
 ```
@@ -56,7 +60,9 @@ This is also pretty straightforward to implement with the library's DSL:
 ```java
 new NLoops()
     .from(0).to(3).inc(2)
-    .from(5).to(2).dec(1)
+    .from(7).to(2)
+    .from(18).to(5).dec(3)
+    .from(1).to(4)
     .action(System.out::println);
 ```
 
@@ -87,9 +93,9 @@ Result output:
 
 ```xml
     <dependency>
-        <groupId>com.ilysenko</groupId>
+        <groupId>0x100</groupId>
         <artifactId>n-loop</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
     </dependency>
 ```
 
