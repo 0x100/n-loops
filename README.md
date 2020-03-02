@@ -4,7 +4,7 @@ Creating dynamic nested loops on Java
 ###
 
 ![build](https://github.com/0x100/n-loops/workflows/build/badge.svg?branch=master)
-
+[![](https://jitpack.io/v/0x100/n-loops.svg)](https://jitpack.io/#0x100/n-loops)
 ##
 
 ### The problem
@@ -98,8 +98,8 @@ Result output:
 ```xml
     <dependency>
         <groupId>com.github.0x100</groupId>
-        <artifactId>n-loop</artifactId>
-        <version>1.0</version>
+        <artifactId>n-loops</artifactId>
+        <version>1.0-release</version>
     </dependency>
 ```
 
