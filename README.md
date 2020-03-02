@@ -93,7 +93,7 @@ Result output:
 
 ```xml
     <dependency>
-        <groupId>0x100</groupId>
+        <groupId>com.github.0x100</groupId>
         <artifactId>n-loop</artifactId>
         <version>1.0</version>
     </dependency>
