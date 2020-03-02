@@ -88,11 +88,11 @@ new NLoops()
 2. Add the `n-loops` dependency
 
     ```xml
-        <dependency>
-            <groupId>com.github.0x100</groupId>
-            <artifactId>n-loops</artifactId>
-            <version>master-SNAPSHOT</version>
-        </dependency>
+    <dependency>
+        <groupId>com.github.0x100</groupId>
+        <artifactId>n-loops</artifactId>
+        <version>master-SNAPSHOT</version>
+    </dependency>
     ```
 
 ### Gradle
