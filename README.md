@@ -70,6 +70,29 @@ Result output:
 [2, 3]
 ```
 
+## How to add the library in your project
+
+1. Add the `jitpack` repository in your `pom.xml`
+
+    ```xml
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+    ```
+
+2. Add the `n-loop` dependency
+
+```xml
+    <dependency>
+        <groupId>com.ilysenko</groupId>
+        <artifactId>n-loop</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
+```
+
 ## How to contribute
 Fork the repository, make changes, write a test for your code, send me a pull request. 
 I will review your changes and apply them to the master branch shortly, provided they don't violate quality standards. 
