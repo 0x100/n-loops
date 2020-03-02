@@ -24,5 +24,8 @@
         </license>
     </licenses>
 
+    <properties>
+        <java.version>8</java.version>
+    </properties>
 
 </project>
