@@ -7,7 +7,7 @@ import static java.util.Collections.nCopies;
 import static java.util.Optional.ofNullable;
 
 public class NLoops {
-    private List<Loop> loops = new ArrayList<Loop>();
+    private List<Loop> loops = new ArrayList<>();
 
     public NLoops from(int from) {
         loops.add(new Loop().from(from));
@@ -47,7 +47,7 @@ public class NLoops {
     }
 
     private boolean getCondition(int i, Loop loop) {
-        return loop.getDec() > 0 ? i > loop.getTo() : i < loop.getTo();
+        return loop.getFrom() < loop.getTo() ? i < loop.getTo() : i > loop.getTo();
     }
 
     private Loop getLast(List<Loop> loops) {
@@ -58,6 +58,6 @@ public class NLoops {
     }
 
     private int getIndexChange(int i, Loop loop) {
-        return loop.getDec() > 0 ? i - loop.getDec() : i + loop.getInc();
+        return loop.getFrom() < loop.getTo() ? i + loop.getInc() : i - loop.getDec();
     }
 }

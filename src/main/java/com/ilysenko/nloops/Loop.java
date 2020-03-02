@@ -4,7 +4,7 @@ class Loop {
     private int from;
     private int to;
     private int inc = 1;
-    private int dec;
+    private int dec = 1;
 
     Loop from(int from) {
         this.from = from;

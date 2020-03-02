@@ -36,14 +36,20 @@ class NLoopsTest {
         StringBuilder source = new StringBuilder();
 
         for (int i = 0; i < 3; i += 2) {
-            for (int j = 5; j > 2; j--) {
-                target.append(Arrays.asList(i, j));
+            for (int j = 7; j > 2; j--) {
+                for (int k = 18; k > 5; k -= 3) {
+                    for (int l = 1; l < 4; l++) {
+                        target.append(Arrays.asList(i, j, k, l));
+                    }
+                }
             }
         }
 
         new NLoops()
                 .from(0).to(3).inc(2)
-                .from(5).to(2).dec(1)
+                .from(7).to(2)
+                .from(18).to(5).dec(3)
+                .from(1).to(4)
                 .action(source::append);
 
         assertEquals(target.toString(), source.toString());
