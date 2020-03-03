@@ -6,10 +6,10 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class NLoopsTest {
+class LoopsTest {
 
     @Test
-    void testLoop1() {
+    void testLoops1() {
         StringBuilder target = new StringBuilder();
         StringBuilder source = new StringBuilder();
 
@@ -21,7 +21,7 @@ class NLoopsTest {
             }
         }
 
-        new NLoops()
+        new Loops()
                 .from(0).to(2)
                 .from(1).to(3)
                 .from(2).to(4)
@@ -31,7 +31,7 @@ class NLoopsTest {
     }
 
     @Test
-    void testLoop2() {
+    void testLoosp2() {
         StringBuilder target = new StringBuilder();
         StringBuilder source = new StringBuilder();
 
@@ -45,7 +45,7 @@ class NLoopsTest {
             }
         }
 
-        new NLoops()
+        new Loops()
                 .from(0).to(3).inc(2)
                 .from(7).to(2)
                 .from(18).to(5).dec(3)

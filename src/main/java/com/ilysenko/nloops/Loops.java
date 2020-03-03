@@ -5,25 +5,25 @@ import java.util.List;
 
 import static java.util.Collections.nCopies;
 
-public class NLoops {
+public class Loops {
     private List<Loop> loops = new ArrayList<>();
 
-    public NLoops from(int value) {
+    public Loops from(int value) {
         loops.add(new Loop().from(value));
         return this;
     }
 
-    public NLoops to(int value) {
+    public Loops to(int value) {
         getLast().to(value);
         return this;
     }
 
-    public NLoops inc(int value) {
+    public Loops inc(int value) {
         getLast().inc(value);
         return this;
     }
 
-    public NLoops dec(int value) {
+    public Loops dec(int value) {
         getLast().dec(value);
         return this;
     }
