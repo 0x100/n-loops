@@ -5,6 +5,20 @@ class Loop {
     private int to;
     private int step = 1;
 
+    public Loop() {
+    }
+
+    public Loop(int from, int to) {
+        this.from = from;
+        this.to = to;
+    }
+
+    public Loop(int from, int to, int step) {
+        this.from = from;
+        this.to = to;
+        this.step = step;
+    }
+
     Loop from(int value) {
         this.from = value;
         return this;

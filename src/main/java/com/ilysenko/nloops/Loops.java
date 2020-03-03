@@ -8,6 +8,13 @@ import static java.util.Collections.nCopies;
 public class Loops {
     private List<Loop> loops = new ArrayList<>();
 
+    public Loops() {
+    }
+
+    public Loops(List<Loop> loops) {
+        this.loops = loops;
+    }
+
     public Loops from(int value) {
         loops.add(new Loop().from(value));
         return this;
