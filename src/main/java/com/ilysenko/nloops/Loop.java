@@ -3,26 +3,20 @@ package com.ilysenko.nloops;
 class Loop {
     private int from;
     private int to;
-    private int inc = 1;
-    private int dec = 1;
+    private int step = 1;
 
-    Loop from(int from) {
-        this.from = from;
+    Loop from(int value) {
+        this.from = value;
         return this;
     }
 
-    Loop to(int to) {
-        this.to = to;
+    Loop to(int value) {
+        this.to = value;
         return this;
     }
 
-    Loop inc(int inc) {
-        this.inc = inc;
-        return this;
-    }
-
-    Loop dec(int dec) {
-        this.dec = dec;
+    Loop step(int value) {
+        this.step = value;
         return this;
     }
 
@@ -34,11 +28,7 @@ class Loop {
         return to;
     }
 
-    int getInc() {
-        return inc;
-    }
-
-    int getDec() {
-        return dec;
+    int getStep() {
+        return step;
     }
 }

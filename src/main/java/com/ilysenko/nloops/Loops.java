@@ -18,13 +18,8 @@ public class Loops {
         return this;
     }
 
-    public Loops inc(int value) {
-        getLast().inc(value);
-        return this;
-    }
-
-    public Loops dec(int value) {
-        getLast().dec(value);
+    public Loops step(int value) {
+        getLast().step(value);
         return this;
     }
 
@@ -57,7 +52,7 @@ public class Loops {
     }
 
     private int getIndexChange(int i, Loop loop) {
-        return isUpward(loop) ? i + loop.getInc() : i - loop.getDec();
+        return isUpward(loop) ? i + loop.getStep() : i - loop.getStep();
     }
 
     private boolean isUpward(Loop loop) {

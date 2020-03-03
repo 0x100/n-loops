@@ -46,9 +46,9 @@ class LoopsTest {
         }
 
         new Loops()
-                .from(0).to(3).inc(2)
+                .from(0).to(3).step(2)
                 .from(7).to(2)
-                .from(18).to(5).dec(3)
+                .from(18).to(5).step(3)
                 .from(1).to(4)
                 .action(source::append);
 
