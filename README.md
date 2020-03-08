@@ -74,7 +74,7 @@ new Loops()
 
 Suppose we need to generate loops which iterating over real values:
 ```java
-for (double i = 0; i < 2.5; i ++) {
+for (double i = 0; i < 2.5; i++) {
     for (double j = 1.5; j < 3.99; j += 0.5) {
         for (double k = 2.5; k < 4.5; k += 0.1) {
             target.append(Arrays.asList(i, j, k));
