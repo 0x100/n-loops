@@ -19,6 +19,18 @@ public class Loop {
         this.step = step;
     }
 
+    public static Loop loop() {
+        return new Loop();
+    }
+
+    public static Loop loop(double from, double to) {
+        return new Loop(from, to);
+    }
+
+    public static Loop loop(double from, double to, double step) {
+        return new Loop(from, to, step);
+    }
+
     public Loop from(double value) {
         this.from = value;
         return this;

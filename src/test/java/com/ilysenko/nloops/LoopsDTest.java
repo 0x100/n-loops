@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.ilysenko.nloops.Loop.loop;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class LoopsDTest {
@@ -99,10 +100,10 @@ class LoopsDTest {
         }
 
         List<Loop> loops = Arrays.asList(
-                new Loop().from(0).to(3.5).step(0.5),
-                new Loop().from(7).to(2.5),
-                new Loop().from(18).to(5.5).step(3.5),
-                new Loop().from(0.99).to(4.99));
+                loop().from(0).to(3.5).step(0.5),
+                loop().from(7).to(2.5),
+                loop().from(18).to(5.5).step(3.5),
+                loop().from(0.99).to(4.99));
 
         new Loops(loops).real()
                 .action(source::append);
