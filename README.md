@@ -70,6 +70,28 @@ new Loops()
     .action(System.out::println);
 ```
 
+### Iterating real values
+
+Suppose we need to generate loops which iterating over real values:
+```java
+for (double i = 0; i < 2.5; i ++) {
+    for (double j = 1.5; j < 3.99; j += 0.5) {
+        for (double k = 2.5; k < 4.5; k += 0.1) {
+            target.append(Arrays.asList(i, j, k));
+        }
+    }
+}
+```
+
+In this case use the `Loops#real` method:
+```java
+new Loops().real()
+        .from(0).to(2.5)
+        .from(1.5).to(3.99).step(0.5)
+        .from(2.5).to(4.5).step(0.1)
+        .action(source::append);
+```
+
 ## How to add the library in your project
 
 ### Maven

@@ -5,7 +5,7 @@ import java.util.List;
 
 import static java.util.Collections.nCopies;
 
-public class Loops {
+public class Loops extends AbstractLoops {
     private List<Loop> loops = new ArrayList<>();
 
     public Loops() {
@@ -15,8 +15,12 @@ public class Loops {
         this.loops = loops;
     }
 
+    public LoopsD real() {
+        return new LoopsD(getLoops());
+    }
+
     public Loops from(int value) {
-        loops.add(new Loop().from(value));
+        getLoops().add(new Loop().from(value));
         return this;
     }
 
@@ -30,28 +34,26 @@ public class Loops {
         return this;
     }
 
-    public void action(Action action) {
-        List<Integer> indices = new ArrayList<>(nCopies(loops.size(), 0));
+    public void action(Action<Integer> action) {
+        List<Integer> indices = new ArrayList<>(nCopies(getLoops().size(), 0));
         loop(0, indices, action);
     }
 
-    private void loop(int level, List<Integer> indices, Action action) {
+    @Override
+    protected List<Loop> getLoops() {
+        return loops;
+    }
+
+    private void loop(int level, List<Integer> indices, Action<Integer> action) {
         if (level == indices.size()) {
             action.perform(indices);
             return;
         }
-        Loop loop = loops.get(level);
-        for (int i = loop.getFrom(); getCondition(i, loop); i = getIndexChange(i, loop)) {
+        Loop loop = getLoops().get(level);
+        for (int i = (int) loop.getFrom(); getCondition(i, loop); i = getIndexChange(i, loop)) {
             indices.set(level, i);
             loop(level + 1, indices, action);
         }
-    }
-
-    private Loop getLast() {
-        if (loops.isEmpty()) {
-            throw new IllegalArgumentException();
-        }
-        return loops.get(loops.size() - 1);
     }
 
     private boolean getCondition(int i, Loop loop) {
@@ -59,10 +61,6 @@ public class Loops {
     }
 
     private int getIndexChange(int i, Loop loop) {
-        return isUpward(loop) ? i + loop.getStep() : i - loop.getStep();
-    }
-
-    private boolean isUpward(Loop loop) {
-        return loop.getFrom() < loop.getTo();
+        return (int) (isUpward(loop) ? i + loop.getStep() : i - loop.getStep());
     }
 }

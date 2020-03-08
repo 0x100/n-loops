@@ -1,48 +1,48 @@
 package com.ilysenko.nloops;
 
-class Loop {
-    private int from;
-    private int to;
-    private int step = 1;
+public class Loop {
+    private double from;
+    private double to;
+    private double step = 1;
 
     public Loop() {
     }
 
-    public Loop(int from, int to) {
+    public Loop(double from, double to) {
         this.from = from;
         this.to = to;
     }
 
-    public Loop(int from, int to, int step) {
+    public Loop(double from, double to, double step) {
         this.from = from;
         this.to = to;
         this.step = step;
     }
 
-    Loop from(int value) {
+    public Loop from(double value) {
         this.from = value;
         return this;
     }
 
-    Loop to(int value) {
+    public Loop to(double value) {
         this.to = value;
         return this;
     }
 
-    Loop step(int value) {
+    public Loop step(double value) {
         this.step = value;
         return this;
     }
 
-    int getFrom() {
+    public double getFrom() {
         return from;
     }
 
-    int getTo() {
+    public double getTo() {
         return to;
     }
 
-    int getStep() {
+    public double getStep() {
         return step;
     }
 }
