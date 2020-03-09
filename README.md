@@ -136,6 +136,10 @@ new Loops().real()
     }
     ```
 
+## Examples
+
+Additional examples of using the API see in unit tests.
+
 ## How to contribute
 Fork the repository, make changes, write a test for your code, send me a pull request. 
 I will review your changes and apply them to the master branch shortly, provided they don't violate quality standards. 
