@@ -16,24 +16,24 @@ import static java.util.Collections.nCopies;
 /**
  * Iterating real values
  */
-public class LoopsD extends AbstractLoops {
+public class LoopsR extends AbstractLoops {
     private List<Loop> loops;
 
-    public LoopsD(List<Loop> loops) {
+    public LoopsR(List<Loop> loops) {
         this.loops = loops;
     }
 
-    public LoopsD from(double value) {
+    public LoopsR from(double value) {
         getLoops().add(new Loop().from(value));
         return this;
     }
 
-    public LoopsD to(double value) {
+    public LoopsR to(double value) {
         getLast().to(value);
         return this;
     }
 
-    public LoopsD step(double value) {
+    public LoopsR step(double value) {
         getLast().step(value);
         return this;
     }
@@ -61,10 +61,10 @@ public class LoopsD extends AbstractLoops {
     }
 
     private boolean getCondition(double i, Loop loop) {
-        return isUpward(loop) ? i < loop.getTo() : i > loop.getTo();
+        return isForward(loop) ? i < loop.getTo() : i > loop.getTo();
     }
 
     private double getIndexChange(double i, Loop loop) {
-        return isUpward(loop) ? i + loop.getStep() : i - loop.getStep();
+        return isForward(loop) ? i + loop.getStep() : i - loop.getStep();
     }
 }

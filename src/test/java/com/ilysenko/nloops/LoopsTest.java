@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class LoopsTest {
 
     @Test
-    void testLoops1() {
+    void test1() {
         StringBuilder target = new StringBuilder();
         StringBuilder source = new StringBuilder();
 
@@ -41,7 +41,7 @@ class LoopsTest {
     }
 
     @Test
-    void testLoops2() {
+    void test2() {
         StringBuilder target = new StringBuilder();
         StringBuilder source = new StringBuilder();
 
@@ -66,7 +66,7 @@ class LoopsTest {
     }
 
     @Test
-    void testLoops3() {
+    void test3() {
         StringBuilder target = new StringBuilder();
         StringBuilder source = new StringBuilder();
 
@@ -93,7 +93,7 @@ class LoopsTest {
     }
 
     @Test
-    void testLoops4() {
+    void test4() {
         StringBuilder target = new StringBuilder();
         StringBuilder source = new StringBuilder();
 
@@ -120,7 +120,7 @@ class LoopsTest {
     }
 
     @Test
-    void testLoops5() {
+    void test5() {
         StringBuilder target = new StringBuilder();
         StringBuilder source = new StringBuilder();
 
@@ -144,5 +144,30 @@ class LoopsTest {
                 .action(source::append);
 
         assertEquals(target.toString(), source.toString());
+    }
+
+    @Test
+    public void test6() {
+        StringBuilder target = new StringBuilder();
+        StringBuilder source = new StringBuilder();
+
+        for (int i = 0; i < 2; i++) {
+            for (int j = i; j < 3; j++) {
+                for (int k = j + 1; k < 4; k++) {
+                    for (int l = 1; k < l + 2; k++) {
+                        target.append(Arrays.asList(i, j, k, l));
+                    }
+                }
+            }
+        }
+
+        List<Loop> loops = Arrays.asList(
+                new Loop().from(0).to(2),
+                new Loop().fromAbove(0).to(3),
+                new Loop().fromAbove(+ 1).to(4),
+                new Loop().from(1).toAbove(+ 2));
+
+        new Loops(loops)
+                .action(source::append);
     }
 }

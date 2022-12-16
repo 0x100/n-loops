@@ -70,7 +70,7 @@ new Loops()
     .action(System.out::println);
 ```
 
-### Iterating real values
+### Iterate real values
 
 Suppose we need to generate loops which iterating over real values:
 ```java
@@ -89,6 +89,32 @@ new Loops().real()
         .from(0).to(2.5)
         .from(1.5).to(3.99).step(0.5)
         .from(2.5).to(4.5).step(0.1)
+        .action(System.out::println);
+```
+
+### Iterate depending on the parent loop 
+
+If you need loops depending on current value in the loop above (parent loop):
+
+```java
+for (int i = 0; i < 2; i++) {
+   for (int j = i; j < 3; j++) {
+      for (int k = j + 1; k < 4; k++) {
+          for (int l = 1; k < l + 2; k++) {
+              target.append(Arrays.asList(i, j, k, l));
+         }
+      }
+   }
+}
+```
+
+You could use such construction:
+```java
+new Loops()
+        .from(0).to(2)
+        .fromAbove(0).to(3)
+        .fromAbove(+ 1).to(4)
+        .from(1).toAbove(+ 2)
         .action(System.out::println);
 ```
 

@@ -23,8 +23,8 @@ public class Loops extends AbstractLoops {
         this.loops = loops;
     }
 
-    public LoopsD real() {
-        return new LoopsD(getLoops());
+    public LoopsR real() {
+        return new LoopsR(getLoops());
     }
 
     public Loops from(int value) {
@@ -32,8 +32,24 @@ public class Loops extends AbstractLoops {
         return this;
     }
 
+    public Loops fromAbove(int value) {
+        if (getLoops().size() == 0) {
+            throw new RuntimeException("No one loop above!");
+        }
+        getLoops().add(new Loop().fromAbove(value));
+        return this;
+    }
+
     public Loops to(int value) {
         getLast().to(value);
+        return this;
+    }
+
+    public Loops toAbove(int value) {
+        if (getLoops().size() == 0) {
+            throw new RuntimeException("No one loop above!");
+        }
+        getLast().toAbove(value);
         return this;
     }
 
@@ -44,7 +60,7 @@ public class Loops extends AbstractLoops {
 
     public void action(Action<Integer> action) {
         List<Integer> indices = new ArrayList<>(nCopies(getLoops().size(), 0));
-        loop(0, indices, action);
+        iterate(0, indices, action);
     }
 
     @Override
@@ -52,23 +68,29 @@ public class Loops extends AbstractLoops {
         return loops;
     }
 
-    private void loop(int level, List<Integer> indices, Action<Integer> action) {
+    private void iterate(int level, List<Integer> indices, Action<Integer> action) {
         if (level == indices.size()) {
             action.perform(indices);
             return;
         }
         Loop loop = getLoops().get(level);
-        for (int i = (int) loop.getFrom(); getCondition(i, loop); i = getIndexChange(i, loop)) {
+        boolean isFromAbove = loop.isFromAbove();
+        int valueAbove = isFromAbove ? indices.get(level - 1) : 0;
+        int fromValue = (int) loop.getFrom();
+        int from = isFromAbove ? valueAbove + fromValue : fromValue;
+
+        for (int i = from; getCondition(i, loop, valueAbove); i = getIndexChange(i, loop)) {
             indices.set(level, i);
-            loop(level + 1, indices, action);
+            iterate(level + 1, indices, action);
         }
     }
 
-    private boolean getCondition(int i, Loop loop) {
-        return isUpward(loop) ? i < loop.getTo() : i > loop.getTo();
+    private boolean getCondition(int i, Loop loop, int valueAbove) {
+        double to = loop.isToAbove() ? valueAbove + loop.getTo() : loop.getTo();
+        return isForward(loop) ? i < to : i > to;
     }
 
     private int getIndexChange(int i, Loop loop) {
-        return (int) (isUpward(loop) ? i + loop.getStep() : i - loop.getStep());
+        return (int) (isForward(loop) ? i + loop.getStep() : i - loop.getStep());
     }
 }

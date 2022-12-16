@@ -10,7 +10,9 @@ package com.ilysenko.nloops;
 
 public class Loop {
     private double from;
+    private boolean fromAbove;
     private double to;
+    private boolean toAbove;
     private double step = 1;
 
     public Loop() {
@@ -44,8 +46,20 @@ public class Loop {
         return this;
     }
 
+    public Loop fromAbove(double value) {
+        this.from = value;
+        this.fromAbove = true;
+        return this;
+    }
+
     public Loop to(double value) {
         this.to = value;
+        return this;
+    }
+
+    public Loop toAbove(double value) {
+        this.to = value;
+        this.toAbove = true;
         return this;
     }
 
@@ -60,6 +74,14 @@ public class Loop {
 
     public double getTo() {
         return to;
+    }
+
+    public boolean isFromAbove() {
+        return fromAbove;
+    }
+
+    public boolean isToAbove() {
+        return toAbove;
     }
 
     public double getStep() {
