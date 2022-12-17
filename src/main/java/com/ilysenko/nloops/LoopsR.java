@@ -17,7 +17,9 @@ import static java.util.Collections.nCopies;
  * Iterating real values
  */
 public class LoopsR extends AbstractLoops {
+
     private List<Loop> loops;
+
 
     public LoopsR(List<Loop> loops) {
         this.loops = loops;

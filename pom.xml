@@ -6,7 +6,7 @@
 
     <groupId>com.ilysenko</groupId>
     <artifactId>n-loops</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <name>n-loops</name>
     <description>Java library for generating nested loops</description>
 

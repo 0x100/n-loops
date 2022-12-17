@@ -14,7 +14,9 @@ import java.util.List;
 import static java.util.Collections.nCopies;
 
 public class Loops extends AbstractLoops {
+
     private List<Loop> loops = new ArrayList<>();
+
 
     public Loops() {
     }
@@ -75,18 +77,17 @@ public class Loops extends AbstractLoops {
         }
         Loop loop = getLoops().get(level);
         boolean isFromAbove = loop.isFromAbove();
-        int valueAbove = isFromAbove ? indices.get(level - 1) : 0;
         int fromValue = (int) loop.getFrom();
-        int from = isFromAbove ? valueAbove + fromValue : fromValue;
+        int from = isFromAbove ? indices.get(level - 1) + fromValue : fromValue;
 
-        for (int i = from; getCondition(i, loop, valueAbove); i = getIndexChange(i, loop)) {
+        for (int i = from; getCondition(i, loop, level, indices); i = getIndexChange(i, loop)) {
             indices.set(level, i);
             iterate(level + 1, indices, action);
         }
     }
 
-    private boolean getCondition(int i, Loop loop, int valueAbove) {
-        double to = loop.isToAbove() ? valueAbove + loop.getTo() : loop.getTo();
+    private boolean getCondition(int i, Loop loop, int level, List<Integer> indices) {
+        double to = loop.isToAbove() ? indices.get(level - 1) + loop.getTo() : loop.getTo();
         return isForward(loop) ? i < to : i > to;
     }
 

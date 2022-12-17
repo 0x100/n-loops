@@ -19,7 +19,7 @@ public abstract class AbstractLoops {
         return getLoops().get(getLoops().size() - 1);
     }
 
-    boolean isForward(Loop loop) {
+    protected boolean isForward(Loop loop) {
         return loop.getFrom() < loop.getTo();
     }
 
